@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import {BrowserRouter, Routes, Route } from 'react-router-dom'
+import Contos from './Contos'
+import Hist from './Hist'
 
-function App() {
+import Home from './Home'
+import Personagens from './Personagens'
+import UserContext from './userContext'
+const App = () => {
+  const [user,setUser] = useState('')
+  const [ref,setRef] = useState(null)
+  const [chars,setChars] = useState(null)
+  const [hists,setHists] = useState(null)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+    <UserContext.Provider value={{user,setUser,ref,setRef,chars,setChars,hists,setHists}}>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/Contos' element={<Contos />} />
+      <Route path='/Hist' element={<Hist />} />
+      <Route path='/Personagens' element={<Personagens />} />
+    </Routes>
+    </UserContext.Provider>
+  </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
