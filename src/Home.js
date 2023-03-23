@@ -26,8 +26,8 @@ function Home() {
   },[])
   useEffect(() => {
     fetch('https://api-uvc.onrender.com/Chars').then(Response => Response.json()).then(data => {
+      console.log('data:',data)
       setChars(data)
-      console.log(chars)
     })
   },[])
   function HandleSubmit() {

@@ -12,10 +12,14 @@ const Header = () => {
       {window.innerWidth > 480 &&
         <header style={{display: 'flex',justifyContent: 'space-between',alignItems: 'center',background: '#B140A6',height: '100px',marginBottom: '32px'}}> 
         <img onClick={() => nav('/Contos')} className='divhover' style={{height: '200px',position: 'relative',top: '16px',left: '20px'}} src={UVC} />
+            <div style={{display: 'flex',gap:'20px'}}>
+            <NavLink className={'divhover'} style={{textDecoration: 'none'}} to={'/Contos'}><h2 style={{marginRight: '0px',fontSize: '28px',textTransform: 'uppercase',color: 'black',textDecoration: 'none'}}>Contos</h2></NavLink>
+            <NavLink className={'divhover'} style={{textDecoration: 'none'}} to={'/Personagens'}><h2 style={{marginRight: '32px',fontSize: '28px',textTransform: 'uppercase',color: 'black',textDecoration: 'none'}}>Personagens</h2></NavLink>
         <div style={{display: "flex",position:  'relative',right: '32px',padding: '6px',borderRadius: '25px',flex: '0',alignItems: 'center',gap: '8px',border: '2px solid rgba(0,0,0,.4)'}}>
             <img src={people} style={{width: '32px',height: '32px'}}/>
             <h1 style={{position: 'relative',bottom: '4px',whiteSpace: 'nowrap',fontSize: '16px',fontWeight: 'normal'}}>{user}</h1>
         </div>
+            </div>
         </header>}
         {window.innerWidth < 480 &&
         <header style={{display: 'flex',justifyContent: 'space-between',alignItems: 'center',background: '#B140A6',height: '100px',marginBottom: '32px',paddingRight: '24px'}}> 

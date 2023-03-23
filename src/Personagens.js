@@ -2,18 +2,15 @@ import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import UserContext from './userContext'
 const Personagens = () => {
-  const {user,setRef,hists,setHists,chars} = React.useContext(UserContext)
-  const [charac,setCharacs] = useState([])
+  const {user,setRef,hists,setHists,chars,setChars} = React.useContext(UserContext)
   useEffect(() => {
+    console.log(chars)
     if (!chars) {
         console.log('aaa')
         fetch('https://api-uvc.onrender.com/Chars').then(Response => Response.json()).then(data => {      
-            setCharacs(data)
+            setChars(data)
+            // console.log(data)
         })
-    } else {
-        console.log(charac,chars)
-        setCharacs(chars)
-        console.log(charac,chars)
     }
   },[])
   return (
@@ -21,7 +18,7 @@ const Personagens = () => {
         <Header />
         <div>
             {chars && <div>
-            {chars.map((item) => (
+            {chars[0].map((item) => (
                 <h1>{item.nome}</h1>
             ))}
             </div>}
